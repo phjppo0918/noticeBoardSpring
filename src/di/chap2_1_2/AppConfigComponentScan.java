@@ -11,8 +11,11 @@ import di.chap2_1.UserService;
 import di.chap2_1.UserServiceImpl;
  
 @Configuration //설정 클래스 선언
-
-public class AppConfig {
+@ComponentScan("di")//컴포넌트 스캔이 활성화되도록 클래스에 @ComponentScan 에너테이션을 부여한다.
+//애너테이션의 value 속성이나 basePackages 속성에 컴포넌트를 스캔할 패키지를 지정한다
+//스캔 대상이 되는 에너테이션이 부여된 클래스를 DI 컨테이너에 자동으로 등록한다 
+//이 속성을 생략할 경우 설정 클래스가 들어있는 패키지 이하를 스캔한다.
+public class AppConfigComponentScan {
 	@Bean //빈 정의. 메서드 이름이 빈이 이름
 	UserRepository userRepository() {
 		return new UserRepositoryImpl();
