@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!-- <beans>요소 안에 bean 정의를 여러 개 한다 -->
+<beans 
+	xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 세터 인젝션을 XML 기반 설정 방식으로 표현한 예 -->
+	<bean id="userService" class="di.chap2_1_4.UserServiceImplSetterInjection">
+		<!-- 컨스트럭터 인젝션을 XML 기반 설정 방식으로 표현한 예(인덱스 사용) -->
+		<constructor-arg index="0" ref="userRepository"/>
+		<constructor-arg index="1" ref="passwordEncoder"/>
+	</bean>
+	<bean id="userService2" class="di.chap2_1_4.UserServiceImplSetterInjection">
+		<!-- 컨스트럭터 인젝션을 XML 기반 설정 방식으로 표현한 예(인수명 사용) -->
+		<constructor-arg name="userRepository" ref="userRepository"/>
+		<constructor-arg name="passwordEncoder" ref="passwordEncoder"/>
+	</bean>
+</beans>
