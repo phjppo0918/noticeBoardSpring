@@ -29,7 +29,7 @@ public class AppConfig {
 	}
 	
 	//자바 기반 설정방식에서는 메서드에 매개변수를 추가하는 방법으로 다른 컴포넌트의 의존성을 주입할 수 있다.
-	//단, 인수로 전달된 인스턴스에 대한 빈은 별도로 정이돼 있어야 한다.
+	//단, 인수로 전달된 인스턴스에 대한 빈은 별도로 정의돼 있어야 한다.
 
 	@Bean
 	UserService userService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
