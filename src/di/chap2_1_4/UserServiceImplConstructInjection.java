@@ -25,14 +25,6 @@ public class UserServiceImplConstructInjection implements UserService {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	//설정자 기반 의존성 주입 방식 (setter injection)
-	public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
-	
-	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
-		this.passwordEncoder = passwordEncoder;
-	}
 	
 	
 	@Override
