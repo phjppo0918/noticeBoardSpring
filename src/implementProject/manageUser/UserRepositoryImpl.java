@@ -6,13 +6,14 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User save(User user) {
-		// TODO Auto-generated method stub
+		System.out.printf("사용자 정보를 %s값으로 저장합니다\n", user.getName());
+		
 		return null;
 	}
 
 	@Override
 	public int countById(String id) {
-		// TODO Auto-generated method stub
+		System.out.println("사용자 계정과 이름이 같은 id의 개수를 출력합니다.");
 		return 0;
 	}
 

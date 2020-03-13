@@ -4,7 +4,7 @@ public class BCryptPasswordEncoder implements PasswordEncoder {
 
 	@Override
 	public String encode(CharSequence rawPassword) {
-		// TODO Auto-generated method stub
+		System.out.printf("비밀번호를 해쉬화합니다");
 		return null;
 	}
 
