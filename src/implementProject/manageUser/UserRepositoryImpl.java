@@ -6,7 +6,7 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User save(User user) {
-		System.out.printf("사용자 정보를 %s값으로 저장합니다\n", user.getName());
+		System.out.printf("사용자 정보를 %s값으로 저장합니다\n", user.getId());
 		
 		return null;
 	}

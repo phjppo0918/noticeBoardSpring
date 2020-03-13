@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- <bean>요소 안에 bean정의를 한다. id속성에서 지정한 값이 빈의 이름이 되고, 
+	class 속성에서 지정한 클래스가 해당 빈의 구현 클래스다.
+	이때 class 속성은 패키지명부터 클래스명까지 정확하게 기재해야 한다. -->
+	<bean id="userRepository" class="implementProject.manageUser.UserRepositoryImpl"/>
+	<bean id="passwordEncoder" class="implementProject.hashPassword.BCryptPasswordEncoder"/>
+	<bean id="userService" class="implementProject.registerUser.UserServiceImpl">
+		<!-- <constructor-arg>요소에서 생성자를 활용한 의존성 주입을 한다.
+		 ref 속성에 주입할 빈의 이름을 기재한다 -->
+		<constructor-arg ref="userRepository"/>
+		<constructor-arg ref="passwordEncoder"/>
+	</bean>
+
+</beans>
