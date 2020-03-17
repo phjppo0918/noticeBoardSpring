@@ -15,8 +15,9 @@ public class RegisterImpl implements Register {
 
 	@Override
 	public void register(Animal animal, Zookeeper zookeeper) {
-		// TODO Auto-generated method stub
-
+		animal.bark();
+		zookeeper.Calling();
+		zookeeper.callCareer();
 	}
 
 }
