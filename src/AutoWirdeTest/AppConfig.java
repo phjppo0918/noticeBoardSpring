@@ -3,28 +3,32 @@ package AutoWirdeTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import AutoWirdeTest.connector.MakePartner;
-import AutoWirdeTest.connector.MakePartnerImpl;
-import AutoWirdeTest.model.animal.Animal;
-import AutoWirdeTest.model.animal.AnimalImplCat;
-import AutoWirdeTest.model.zookeeper.Zookeeper;
-import AutoWirdeTest.model.zookeeper.ZookeeperImplSamsung;
+import AutoWirdeTest.hashPassword.BCryptPasswordEncoder;
+import AutoWirdeTest.hashPassword.PasswordEncoder;
+import AutoWirdeTest.manageUser.UserRepository;
+import AutoWirdeTest.manageUser.UserRepositoryImpl;
+import AutoWirdeTest.registerUser.UserService;
+import AutoWirdeTest.registerUser.UserServiceImpl;
 
+
+//DI 컨테이너에서 설정파일 역할
+//자바기반 설정 방식
 @Configuration
 public class AppConfig {
 
 	@Bean
-	Animal animal() {
-		return new AnimalImplCat();
+	UserRepository userRepository() {
+		return new UserRepositoryImpl();
 	}
 
 	@Bean
-	Zookeeper zookeeper() {
-		return new ZookeeperImplSamsung();
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 	
 	@Bean
-	MakePartner makepartner() {
-		return new MakePartnerImpl(animal(), zookeeper());
+	UserService userService() {
+		return new UserServiceImpl(userRepository(), passwordEncoder());
 	}
 }
+
